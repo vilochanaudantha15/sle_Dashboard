@@ -108,7 +108,7 @@ const PieChartBox = () => {
                 <span>{item.name}</span>
               </div>
               {/* Format the revenue with commas */}
-              <span>{formatNumberWithCommas(item.value)}</span> <span>{item.date}</span>
+              <span>{formatNumberWithCommas(item.value)}</span> <span>{item.Date}</span>
             </div>
           ))}
         </div>

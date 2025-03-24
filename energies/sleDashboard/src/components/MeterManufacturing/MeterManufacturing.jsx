@@ -17,6 +17,7 @@ import {
 } from "recharts";
 import MUpdateMachinePopup from "../MUpdateMachinePopup";
 import { Link } from "react-router-dom";
+import Memp_Production from "./Memp_Production";
 
 // Replace this with your actual server URL
 
@@ -207,6 +208,29 @@ const Memp = () => {
     setFilteredData(dailyData.slice(0, 5));
   };
 
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      try {
+        console.log("Attempting to delete ID:", id); // Debug log
+        const response = await axios.delete(`${API_BASE_URL}/memp-data/${id}`);
+        console.log("Delete response:", response.data); // Debug log
+        const updatedData = dailyData.filter((entry) => entry.id !== id);
+        setDailyData(updatedData);
+        setFilteredData(updatedData.slice(0, 5));
+        alert("Record deleted successfully!");
+      } catch (error) {
+        console.error(
+          "Error deleting data:",
+          error.response?.data || error.message
+        );
+        alert(
+          "Failed to delete record: " +
+            (error.response?.data?.message || "Unknown error")
+        );
+      }
+    }
+  };
+
   const toggleChatBox = () => {
     setShowChatBox(!showChatBox);
   };
@@ -270,46 +294,7 @@ const Memp = () => {
             Order By
           </button>
         </div>
-        <h2>Production Table</h2>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Dispatch</th>
-              <th>Manufactured</th>
-              <th>Good Covers</th>
-              <th>Good Bases</th>
-              <th>Good Shutters</th>
-              <th>Defect Covers</th>
-              <th>Defect Bases</th>
-              <th>Defect Shutters</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((entry) => (
-              <tr key={entry.id}>
-                <td>{formatDate(entry.date)}</td>
-                <td>{entry.dispatch}</td>
-                <td>{entry.manufactured}</td>
-                <td>{entry.good_covers}</td>
-                <td>{entry.good_bases}</td>
-                <td>{entry.good_shutters}</td>
-                <td>{entry.defect_covers}</td>
-                <td>{entry.defect_bases}</td>
-                <td>{entry.defect_shutters}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
         <h2>Stock Table</h2>
-        <div className="buttons">
-          <button className="add-data-btn" onClick={openForm}>
-            Add Data
-          </button>
-          <button className="order-by-btn" onClick={handleOrderByClick}>
-            Order By
-          </button>
-        </div>
         <table className="data-table">
           <thead>
             <tr>
@@ -322,6 +307,7 @@ const Memp = () => {
               <th>Defect Covers</th>
               <th>Defect Bases</th>
               <th>Defect Shutters</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -336,12 +322,22 @@ const Memp = () => {
                 <td>{entry.defect_covers}</td>
                 <td>{entry.defect_bases}</td>
                 <td>{entry.defect_shutters}</td>
+                <td>
+                  <span
+                    className="delete-icon"
+                    onClick={() => handleDelete(entry.id)}
+                    style={{ cursor: "pointer", color: "red" }}
+                  >
+                    🗑️
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
+      <Memp_Production/>
       <div className="bar-chart-container">
         <h2>Units by Date</h2>
         <ResponsiveContainer width="100%" height={300}>

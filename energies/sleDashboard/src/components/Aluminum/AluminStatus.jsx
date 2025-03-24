@@ -10,7 +10,6 @@ import "../../scss/plantdetailcommon.scss";
 // const API_BASE_URL = "https://2ece-124-43-4-17.ngrok-free.app/api";
 const API_BASE_URL = "http://localhost:4000/api";
 
-
 const Aluminum = () => {
   const plant_id = 6;
   const [plant, setPlant] = useState(null);
@@ -126,6 +125,31 @@ const Aluminum = () => {
     setFilteredData(dailyData.slice(0, 5)); // Reset to show latest 5 rows
   };
 
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      try {
+        console.log("Attempting to delete ID:", id); // Debug log
+        const response = await axios.delete(
+          `${API_BASE_URL}/aluminumstatus-data/${id}`
+        );
+        console.log("Delete response:", response.data); // Debug log
+        const updatedData = dailyData.filter((entry) => entry.id !== id);
+        setDailyData(updatedData);
+        setFilteredData(updatedData.slice(0, 5));
+        alert("Record deleted successfully!");
+      } catch (error) {
+        console.error(
+          "Error deleting data:",
+          error.response?.data || error.message
+        );
+        alert(
+          "Failed to delete record: " +
+            (error.response?.data?.message || "Unknown error")
+        );
+      }
+    }
+  };
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -148,6 +172,7 @@ const Aluminum = () => {
               <th>Start</th>
               <th>End</th>
               <th>Status</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -157,6 +182,15 @@ const Aluminum = () => {
                 <td>{entry.start}</td>
                 <td>{entry.end}</td>
                 <td>{entry.status}</td>
+                <td>
+                  <span
+                    className="delete-icon"
+                    onClick={() => handleDelete(entry.id)}
+                    style={{ cursor: "pointer", color: "red" }}
+                  >
+                    🗑️
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>

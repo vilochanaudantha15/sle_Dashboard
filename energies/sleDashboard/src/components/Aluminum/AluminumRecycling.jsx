@@ -175,6 +175,31 @@ const Aluminum = () => {
     setShowChatBox(!showChatBox); // Toggle chat box visibility
   };
 
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      try {
+        console.log("Attempting to delete ID:", id); // Debug log
+        const response = await axios.delete(
+          `${API_BASE_URL}/aluminum-data/${id}`
+        );
+        console.log("Delete response:", response.data); // Debug log
+        const updatedData = dailyData.filter((entry) => entry.id !== id);
+        setDailyData(updatedData);
+        setFilteredData(updatedData.slice(0, 5));
+        alert("Record deleted successfully!");
+      } catch (error) {
+        console.error(
+          "Error deleting data:",
+          error.response?.data || error.message
+        );
+        alert(
+          "Failed to delete record: " +
+            (error.response?.data?.message || "Unknown error")
+        );
+      }
+    }
+  };
+
   if (loading) return <div>Loading...</div>;
 
   return (
@@ -240,6 +265,7 @@ const Aluminum = () => {
               <th>Date</th>
               <th>Name</th>
               <th>Task</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -248,6 +274,15 @@ const Aluminum = () => {
                 <td>{formatDate(entry.date)}</td>
                 <td>{entry.name}</td>
                 <td>{entry.task}</td>
+                <td>
+                  <span
+                    className="delete-icon"
+                    onClick={() => handleDelete(entry.id)}
+                    style={{ cursor: "pointer", color: "red" }}
+                  >
+                    🗑️
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>

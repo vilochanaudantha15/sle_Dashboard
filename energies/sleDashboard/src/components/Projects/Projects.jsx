@@ -6,7 +6,6 @@ import "./ProjectsSummary.scss";
 
 const API_BASE_URL = "http://localhost:4000/api";
 
-
 const ProjectsSummary = () => {
   const [projectSummaries, setProjectSummaries] = useState([]);
   const [loading, setLoading] = useState(true);

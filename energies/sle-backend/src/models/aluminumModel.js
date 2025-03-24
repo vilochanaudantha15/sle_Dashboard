@@ -2,8 +2,7 @@ import { pool } from "../config/db.js";
 
 // Function to add daily data
 const addDailyData = async (date, name, task) => {
-  const query =
-    "INSERT INTO aluminum_data (date, name, task) VALUES (?, ?, ?)";
+  const query = "INSERT INTO aluminum_data (date, name, task) VALUES (?, ?, ?)";
   const [result] = await pool.execute(query, [date, name, task]);
   return result.insertId; // Return the ID of the inserted row
 };
@@ -22,4 +21,15 @@ const getDailyDataByDate = async (date) => {
   return rows;
 };
 
-export default { addDailyData, getAllDailyData, getDailyDataByDate };
+const deleteDailyData = async (id) => {
+  const query = "DELETE FROM aluminum_data WHERE id = ?";
+  const [result] = await pool.execute(query, [id]);
+  return result.affectedRows; // Return the number of affected rows
+};
+
+export default {
+  addDailyData,
+  getAllDailyData,
+  getDailyDataByDate,
+  deleteDailyData,
+};

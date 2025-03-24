@@ -23,4 +23,15 @@ const getDailyDataByDate = async (date) => {
   return rows;
 };
 
-export default { addDailyData, getAllDailyData, getDailyDataByDate };
+const deleteDailyData = async (id) => {
+  const query = "DELETE FROM aluminum_status WHERE id = ?";
+  const [result] = await pool.execute(query, [id]);
+  return result.affectedRows; // Return the number of affected rows
+};
+
+export default {
+  addDailyData,
+  getAllDailyData,
+  getDailyDataByDate,
+  deleteDailyData,
+};

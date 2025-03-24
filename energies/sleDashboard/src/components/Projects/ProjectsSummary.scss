@@ -49,7 +49,7 @@ $border-color: #ddd;
       }
 
       &:disabled {
-        background-color: lighten($primary-color, 20%);
+        background-color: ($primary-color, 20%);
         cursor: not-allowed;
       }
     }
@@ -104,14 +104,14 @@ $border-color: #ddd;
 
         .ps-progress-label {
           font-size: 0.9rem;
-          color: lighten($text-color, 10%);
+          color: ($text-color, 10%);
           margin-bottom: 5px;
         }
 
         .ps-progress-bar {
           width: 100%;
           height: 6px;
-          background: lighten($border-color, 10%);
+          background: ($border-color, 10%);
           border-radius: 3px;
           overflow: hidden;
 
@@ -127,7 +127,7 @@ $border-color: #ddd;
         display: flex;
         justify-content: space-between;
         font-size: 0.85rem;
-        color: darken($text-color, 10%);
+        color: ($text-color, 10%);
 
         .ps-detail-item {
           flex: 1;
@@ -176,7 +176,7 @@ $border-color: #ddd;
 
 
 .ps-status-default {
-  background: darken($text-color, 20%);
+  background: ($text-color, 20%);
 }
 
 @keyframes ps-spin {
@@ -328,7 +328,7 @@ $border-color: #ddd;
 .ps-cancel-btn {
   background-color: #e0e0e0;
   color: $text-color;
-  &:hover { background-color: darken(#e0e0e0, 10%); }
+  &:hover { background-color: (#e0e0e0, 10%); }
 }
 
 .ps-update-btn {

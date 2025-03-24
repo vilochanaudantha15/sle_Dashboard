@@ -144,7 +144,7 @@ $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
         &:hover {
-          background-color: darken($primary-color, 10%);
+          background-color: #ef9917;
           transform: scale(1.05);
         }
       }
@@ -153,7 +153,7 @@ $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         background-color: $secondary-color;
 
         &:hover {
-          background-color: darken($secondary-color, 10%);
+          background-color: #10b745;
         }
       }
     }
@@ -188,7 +188,7 @@ $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
 
         &:nth-child(odd) {
-          background-color: lighten($table-row-color, 5%);
+          background-color:($table-row-color, 5%);
         }
 
         &:hover {
@@ -275,7 +275,7 @@ $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
           transition: all 0.3s ease;
 
           &:hover {
-            background-color: darken($primary-color, 10%);
+            background-color: ($primary-color, 10%);
           }
         }
 
@@ -283,7 +283,7 @@ $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
           background-color: #e74c3c;
 
           &:hover {
-            background-color: darken(#e74c3c, 10%);
+            background-color: (#e74c3c, 10%);
           }
         }
       }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2025 at 04:48 AM
+-- Generation Time: Mar 24, 2025 at 08:59 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -38,7 +38,7 @@ CREATE TABLE `alumindaily_images` (
 --
 
 INSERT INTO `alumindaily_images` (`id`, `image_url`, `date`) VALUES
-(1, '/uploads/1740461829269.jpeg', '2025-02-21'),
+(1, '/uploads/1742539463784.jpeg', '2025-03-20'),
 (2, '/uploads/1740458961720.jpeg', '2025-02-25'),
 (3, '/uploads/1740458973379.jpeg', '2025-02-25'),
 (4, '/uploads/1740458981154.jpeg', '2025-02-25');
@@ -61,7 +61,7 @@ CREATE TABLE `aluminum_data` (
 --
 
 INSERT INTO `aluminum_data` (`id`, `date`, `name`, `task`) VALUES
-(1, '2025-02-06', 'vilochana', 'System Maintaince');
+(2, '2025-03-23', 'john', 'System Maintaince');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE `aluminum_labour_data` (
 --
 
 INSERT INTO `aluminum_labour_data` (`id`, `date`, `SkilledLabour`, `SemiSkilledLabour`, `created_at`, `updated_at`) VALUES
-(1, '2025-02-13', 2, 3, '2025-02-13 08:51:59', '2025-02-13 08:51:59');
+(2, '2025-03-23', 3, 21, '2025-03-24 07:55:51', '2025-03-24 07:55:51');
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE `aluminum_status` (
 --
 
 INSERT INTO `aluminum_status` (`id`, `date`, `start`, `end`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2025-02-13', '04:42:00', '16:43:00', 'active', '2025-02-13 09:11:36', '2025-02-13 09:11:36');
+(2, '2025-03-23', '13:20:00', '04:20:00', 'active', '2025-03-24 07:50:43', '2025-03-24 07:50:43');
 
 -- --------------------------------------------------------
 
@@ -128,15 +128,9 @@ CREATE TABLE `biomed_data` (
 --
 
 INSERT INTO `biomed_data` (`id`, `date`, `units`, `tarif`, `revenue`, `plant_factor`) VALUES
-(2, '2025-02-13', 11464, '18.57', '212886.48', NULL),
 (3, '2025-02-12', 10700, '18.57', '198699.00', NULL),
 (4, '2025-02-11', 15700, '18.57', '291549.00', NULL),
-(6, '2025-02-14', 11464, '18.57', '212886.48', NULL),
-(9, '2025-02-17', 21000, '18.57', '389970.00', NULL),
-(12, '2025-02-23', 8006, '18.57', '148671.42', '25.66'),
-(13, '2025-02-23', 5207, '18.57', '96693.99', '16.69'),
-(14, '2025-02-24', 5027, '18.57', '93351.39', '16.11'),
-(15, '2025-03-03', 18000, '18.57', '334260.00', '57.69');
+(6, '2025-02-14', 11464, '18.57', '212886.48', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,7 +219,10 @@ INSERT INTO `comments` (`id`, `user_id`, `user_name`, `text`, `plant_id`, `times
 (49, 2, 'vilochana', 'whats your name', 2, '2025-03-04 06:45:03', NULL),
 (50, 8, 'nimal', 'nimal', 2, '2025-03-04 06:45:44', 49),
 (51, 8, 'nimal', 'how many units biomed produced yesterday', 2, '2025-03-04 06:49:23', NULL),
-(52, 2, 'vilochana', '23000', 2, '2025-03-04 06:49:59', 51);
+(52, 2, 'vilochana', '23000', 2, '2025-03-04 06:49:59', 51),
+(60, 2, 'vilochana', '23', 2, '2025-03-21 07:54:25', 51),
+(73, 2, 'vilochana', 'cds', 3, '2025-03-21 07:59:28', NULL),
+(77, 2, 'vilochana', 'dd', 6, '2025-03-24 06:43:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -247,12 +244,8 @@ CREATE TABLE `deduruoya_data` (
 --
 
 INSERT INTO `deduruoya_data` (`id`, `date`, `units`, `tarif`, `revenue`, `plant_factor`) VALUES
-(4, '2025-02-12', 21000, '18.16', '381360.00', NULL),
-(5, '2025-02-11', 21000, '18.16', '381360.00', NULL),
-(13, '2025-02-17', 23000, '18.16', '417680.00', NULL),
-(23, '2025-02-22', 23000, '18.16', '417680.00', '73.72'),
-(26, '2025-03-02', 24000, '18.16', '617440.00', '108.97'),
-(28, '2025-03-03', 24500, '18.16', '444920.00', '78.53');
+(28, '2025-03-03', 24500, '18.16', '444920.00', '78.53'),
+(29, '2025-03-08', 23000, '18.16', '417680.00', '73.72');
 
 -- --------------------------------------------------------
 
@@ -402,9 +395,7 @@ CREATE TABLE `kumbalgamuwa_data` (
 --
 
 INSERT INTO `kumbalgamuwa_data` (`id`, `date`, `units`, `tarif`, `revenue`, `plant_factor`) VALUES
-(13, '2025-02-22', 21294, '9.27', '197395.38', '68.25'),
-(15, '2025-02-24', 21000, '9.27', '194670.00', '67.31'),
-(16, '2025-02-25', 18000, '9.27', '166860.00', '57.69');
+(15, '2025-02-24', 21000, '9.27', '194670.00', '67.31');
 
 -- --------------------------------------------------------
 
@@ -429,7 +420,7 @@ INSERT INTO `machines` (`id`, `name`, `status`, `details`) VALUES
 (34, 'By pass Valve and Control System', 'Shut Down', 'Bypass valve is shut down for maintenance.'),
 (35, 'Auxiliary Generator (outside)', 'Running', 'Auxiliary generator is fully functional, ready for use.'),
 (36, 'Transformer', 'Average', 'Transformer operating with minor issues, under observation.'),
-(37, 'CT PT Transformer', 'Running', 'CT PT Transformer is operating at full capacity.'),
+(37, 'CT PT Transformer', 'Shut Down', 'CT PT Transformer is operating at full capacity.'),
 (38, 'Auto Re-closer', 'Shut Down', 'Auto re-closer temporarily shut down for system testing.'),
 (39, 'Mechanical Bypass unit (33,000)', 'Average', 'Mechanical bypass unit performing at average efficiency.'),
 (40, 'Overhead Crane', 'Running', 'Overhead crane is in operation for material handling.'),
@@ -476,9 +467,7 @@ CREATE TABLE `manpower_data` (
 
 INSERT INTO `manpower_data` (`id`, `year`, `month`, `workers`, `income`, `profit`, `salary`) VALUES
 (9, 2025, 'Jan', 180, '3500000.00', '1500000.00', '2000000.00'),
-(10, 2025, 'Feb', 180, '2000000.00', '500000.00', '1500000.00'),
-(11, 2025, 'Mar', 180, '3800000.00', '2500000.00', '1300000.00'),
-(12, 2025, 'Apr', 180, '4800000.00', '3500000.00', '2300000.00');
+(10, 2025, 'Feb', 180, '2000000.00', '500000.00', '1500000.00');
 
 -- --------------------------------------------------------
 
@@ -561,9 +550,7 @@ CREATE TABLE `memp_data` (
 --
 
 INSERT INTO `memp_data` (`id`, `date`, `dispatch`, `manufactured`, `good_covers`, `good_bases`, `good_shutters`, `defect_covers`, `defect_bases`, `defect_shutters`) VALUES
-(1, '2025-02-13', 32, 321, 2, 1, 45, 6, 49, 76),
-(2, '2025-02-12', 65, 3, 23, 54, 65, 65, 65, 43),
-(3, '2025-02-09', 32, 55, 77, 66, 44, 4, 6, 8);
+(5, '2025-03-23', 2, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -586,9 +573,9 @@ CREATE TABLE `plants` (
 
 INSERT INTO `plants` (`id`, `name`, `efficiency`, `category`, `img`, `manager_id`) VALUES
 (2, 'Deduruoya', 73, 'PowerStation', '1738579168113.jpg', 2),
-(3, 'Kumbalgamuwa', 78, 'PowerStation', '1738579203277.png', NULL),
+(3, 'Kumbalgamuwa', 78, 'PowerStation', '1738579203277.png', 2),
 (4, 'Biomed', 73, 'PowerStation', '1738579224236.jpeg', 4),
-(5, 'Meter Manufacturing', 0, 'Production Plant', '1738579243142.png', 5),
+(5, 'Meter Manufacturing', 0, 'Production Plant', '1738579243142.png', 2),
 (6, 'Aluminum Recycling', 0, 'Production Plant', '1738579260314.png', NULL),
 (7, 'Solar Department', 0, 'Production Plant', '1738579302101.png', NULL);
 
@@ -624,6 +611,36 @@ CREATE TABLE `posts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `production`
+--
+
+CREATE TABLE `production` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `Ceb` int(11) NOT NULL,
+  `Leco` int(11) NOT NULL,
+  `Ceb_Covers` int(11) NOT NULL,
+  `Leco_Covers` int(11) NOT NULL,
+  `Base` int(11) NOT NULL,
+  `Shutters` int(11) NOT NULL,
+  `Pc_kg` decimal(10,2) NOT NULL,
+  `Cover_Beading` int(11) NOT NULL,
+  `Shutter_Beading` int(11) NOT NULL,
+  `Springs` int(11) NOT NULL,
+  `Corrugated_Boxes` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `production`
+--
+
+INSERT INTO `production` (`id`, `date`, `Ceb`, `Leco`, `Ceb_Covers`, `Leco_Covers`, `Base`, `Shutters`, `Pc_kg`, `Cover_Beading`, `Shutter_Beading`, `Springs`, `Corrugated_Boxes`, `created_at`) VALUES
+(2, '2025-03-23', 2, 2, 2, 2, 2, 2, '2.00', 2, 2, 2, 2, '2025-03-24 07:38:32');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `project_summary`
 --
 
@@ -641,7 +658,7 @@ CREATE TABLE `project_summary` (
 --
 
 INSERT INTO `project_summary` (`id`, `name`, `status`, `completion_percentage`, `type`, `last_updated`) VALUES
-(1, 'Dik Ella', 'pre-feasibility', 50, 'Dik Ella', '2025-02-23'),
+(1, 'Dik Ella', 'pending', 25, 'Dik Ella', '2025-02-22'),
 (2, 'Wekanthale', 'feasibility', 90, 'Wekanthale', '2025-02-27'),
 (3, 'Algoda', 'On-Hold', 40, 'Algoda', '2023-10-13'),
 (4, 'Broadland', 'pre-feasibility', 75, 'Broadland', '2025-02-28'),
@@ -666,7 +683,7 @@ CREATE TABLE `receivables` (
 --
 
 INSERT INTO `receivables` (`id`, `plant_name`, `amount`, `date`) VALUES
-(1, 'Deduru Oya', '1200000.00', '2025-02-19 12:11:25'),
+(1, 'Deduru Oya', '1000000.00', '2025-02-19 12:11:25'),
 (2, 'Kumbalgamuwa', '12000.50', '2025-02-19 12:11:25'),
 (3, 'Biomed', '7500.75', '2025-02-19 12:11:25'),
 (4, 'Memp', '8000.00', '2025-02-19 12:11:25'),
@@ -717,11 +734,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `mobile`, `password`, `userType`, `created_at`, `isManager`) VALUES
 (2, 'vilochana', 'vilochanaudanthaa@gmail.com', '0724875256', '$2a$10$s6DhDoQY/Ph/Bzb1Ofd4n.G0gLqgRsf/KiInPSL7WDiz4RyKK3ruW', 'admin', '2025-01-30 09:19:30', 1),
-(3, 'indrachapa', 'indrachapa@gmail.com', '1234567890', '$2a$10$p4X4G352/.Q9g.qVV624iOA.uA2sfpmEiqAItKrxhrE75a2.uQ.kK', 'user', '2025-01-30 11:14:48', 1),
 (4, 'gayantha', 'gayantha@gmail.com', '1234567890', '$2a$10$be.NQZdBL1WDE0Wbup4h6.Hm/okaqgGEAt89EgpUP9nilNw6S0tdG', 'admin', '2025-01-31 03:05:31', 1),
-(5, 'udantha', 'udantha@gmail.com', '0763268224', '$2a$10$uK0uBY5WbNDoL0.8YkIfkOpI.i5eydMLEFHA3n84kIy30qE1NoDqq', 'admin', '2025-01-31 03:50:13', 1),
 (6, 'vilochanaIndra', 'viludap@gmail.com', '0723911426', '$2a$10$XYMzArVEen4SXFO93sL6O.WtvfxAwlfdek1Q28Rm1aBnTKwEWrOgG', 'admin', '2025-02-03 05:42:36', 0),
-(7, 'udan', 'projectmobile240@gmail.com', '0746875553', '$2a$10$BZbuTtohw.Vjqm..fVdABuqRquvNjy2uzZa68H2HxdvnmDijktUcW', 'admin', '2025-02-17 09:11:06', 0),
 (8, 'nimal', 'nimal@gmail.com', '1234567892', '$2a$10$ffVs5DUtVRrfz1P/avAmO.n1Ozc96GMAuqY7Ub5oK2e3IHSZGiw7a', 'user', '2025-02-25 10:37:11', 0);
 
 --
@@ -869,6 +883,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `production`
+--
+ALTER TABLE `production`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `project_summary`
 --
 ALTER TABLE `project_summary`
@@ -908,19 +928,19 @@ ALTER TABLE `alumindaily_images`
 -- AUTO_INCREMENT for table `aluminum_data`
 --
 ALTER TABLE `aluminum_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `aluminum_labour_data`
 --
 ALTER TABLE `aluminum_labour_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `aluminum_status`
 --
 ALTER TABLE `aluminum_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `biomed_data`
@@ -944,25 +964,25 @@ ALTER TABLE `bmachines`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `deduruoya_data`
 --
 ALTER TABLE `deduruoya_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `deduru_daily_images`
 --
 ALTER TABLE `deduru_daily_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `expenditure`
@@ -1016,13 +1036,13 @@ ALTER TABLE `mempmachines`
 -- AUTO_INCREMENT for table `memp_data`
 --
 ALTER TABLE `memp_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `plants`
 --
 ALTER TABLE `plants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `plant_daily_images`
@@ -1035,6 +1055,12 @@ ALTER TABLE `plant_daily_images`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `production`
+--
+ALTER TABLE `production`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project_summary`

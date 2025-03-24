@@ -170,10 +170,10 @@
   /* Media Queries for Responsiveness */
   @media (max-width: 768px) {
     padding: 20px;
-    margin-left: 0;
+    margin-left:20px;
     .title {
       font-size: 24px;
-      margin-left: 40px;
+      margin-left: -40px;
     }
 
     .stationCard {
