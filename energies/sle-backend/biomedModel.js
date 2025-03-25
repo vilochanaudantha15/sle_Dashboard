@@ -17,7 +17,7 @@ const addDailyData = async (date, units) => {
   ]);
   return result.insertId; // Return the ID of the inserted row
 };
-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
+
 // Function to get all daily records
 const getAllDailyData = async () => {
   const query = "SELECT * FROM biomed_data ORDER BY date DESC";
